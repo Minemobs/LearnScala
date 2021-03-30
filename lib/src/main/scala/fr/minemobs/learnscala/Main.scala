@@ -1,11 +1,13 @@
 package fr.minemobs.learnscala
 
+import java.io.PrintStream
 import scala.io.StdIn.readLine
 import scala.util.control.Breaks.{break, breakable}
 import scala.util.{Random, Try}
 
 object Main {
   def main(args: Array[String]): Unit = {
+    System.setOut(new PrintStream(System.out, true, "UTF-8"))
     /**
      * Val is immutable
      * Var is mutable
@@ -37,7 +39,7 @@ object Main {
 
         if(chosenNumber == rndNumber){
           println("Gagné")
-          break
+          break()
         }else if(chosenNumber < rndNumber){
           println("Inférieur")
         }else if(chosenNumber > rndNumber){
