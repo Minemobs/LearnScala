@@ -1,9 +1,17 @@
 package fr.minemobs.learnscala
 
+import scala.io.StdIn.readLine
+
 object Main {
   def main(args: Array[String]): Unit = {
-    val username: String = new JMain().getUsername //Immutable (can't be changed) use var if it's mutable
-    println("Hello " + username)
+    /**
+     * Val is immutable
+     * Var is mutable
+     */
+    //val username: String = new JMain().getUsername
+    System.out.println("What's your name ?")
+    val username = readLine()
+    println(s"Hello $username")
     val speech =
       """This is a multiline
         |String
@@ -12,5 +20,7 @@ object Main {
         |adding a +
         |.""".stripMargin
         println(speech)
+
+
   }
 }
