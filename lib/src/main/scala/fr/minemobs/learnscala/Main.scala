@@ -1,6 +1,8 @@
 package fr.minemobs.learnscala
 
 import scala.io.StdIn.readLine
+import scala.util.control.Breaks.{break, breakable}
+import scala.util.{Random, Try}
 
 object Main {
   def main(args: Array[String]): Unit = {
@@ -21,6 +23,27 @@ object Main {
         |.""".stripMargin
         println(speech)
 
+    moreOrLess()
+  }
 
+  def moreOrLess(): Unit = {
+    println("Vous avez 5 chances")
+    val rndNumber = new Random().nextInt(101)
+    println(rndNumber)
+    breakable{
+      for( a <- 1 to 5){
+        println("Choose a number")
+        val chosenNumber: Int = readLine().toInt
+
+        if(chosenNumber == rndNumber){
+          println("Gagné")
+          break
+        }else if(chosenNumber < rndNumber){
+          println("Inférieur")
+        }else if(chosenNumber > rndNumber){
+          println("Supérieur")
+        }
+      }
+    }
   }
 }
